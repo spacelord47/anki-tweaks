@@ -1,5 +1,3 @@
-*NOTE:* the project is still in development.
-
 ### Supported features
 ```json
 {
