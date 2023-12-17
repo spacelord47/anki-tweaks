@@ -23,14 +23,19 @@ window.anki_tweaks.showCloze = ({ isShowAll } = {}) => {
 };
 
 window.anki_tweaks.handleClozeKeyDown = (event) => {
-  switch (event.key) {
-    case window.anki_tweaks.next_shortcut:
-      window.anki_tweaks.showCloze();
-      break;
-    case window.anki_tweaks.all_shortcut:
-      window.anki_tweaks.showCloze({ isShowAll: true });
-      break;
-    default:
+  const nextBindingCode = `Key${window.anki_tweaks.next_shortcut.toUpperCase()}`;
+  const allBindingCode = `Key${window.anki_tweaks.all_shortcut.toUpperCase()}`;
+
+  const isMatchingNextShortcut = event.code === nextCode
+  && ((event.shiftKey === false && window.anki_tweaks.next_shortcut.match(/[a-z]/)) || (event.shiftKey === true && window.anki_tweaks.next_shortcut.match(/[A-Z]/)))
+  const isMatchingAllShortcut = event.code === allBindingCode
+  && ((event.shiftKey === false && window.anki_tweaks.all_shortcut.match(/[a-z]/)) || (event.shiftKey === true && window.anki_tweaks.all_shortcut.match(/[A-Z]/)))
+  console.log(event.code, event.shiftKey)
+
+  if (isMatchingNextShortcut) {
+    window.anki_tweaks.showCloze();
+  } else if (isMatchingAllShortcut) {
+    window.anki_tweaks.showCloze({ isShowAll: true });
   }
 };
 
