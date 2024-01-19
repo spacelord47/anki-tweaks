@@ -30,7 +30,7 @@ window.anki_tweaks.handleClozeKeyDown = (event) => {
   && ((event.shiftKey === false && window.anki_tweaks.next_shortcut.match(/[a-z]/)) || (event.shiftKey === true && window.anki_tweaks.next_shortcut.match(/[A-Z]/)))
   const isMatchingAllShortcut = event.code === allBindingCode
   && ((event.shiftKey === false && window.anki_tweaks.all_shortcut.match(/[a-z]/)) || (event.shiftKey === true && window.anki_tweaks.all_shortcut.match(/[A-Z]/)))
-  console.log(event.code, event.shiftKey)
+//  console.log(event.code, event.shiftKey)
 
   if (isMatchingNextShortcut) {
     window.anki_tweaks.showCloze();
